@@ -1,6 +1,7 @@
 import 'package:animation/animated_opacity/simple_demo_opacity.dart';
 import 'package:flutter/material.dart';
 
+import 'animated_size/simple_demo_animatedsize.dart';
 import 'view/explicitAnimation.dart';
 import 'view/home.dart';
 import 'view/implicit_animation.dart';
@@ -15,6 +16,7 @@ class AnimationHome extends StatelessWidget {
   static const String implicitAnimation = '/implicit_animation';
   static const String explicitAnimation = '/explicit_animation';
   static const String animatedOpacity = '/animated_opacity';
+  static const String animatedSize = '/animated_size';
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,8 @@ class AnimationHome extends StatelessWidget {
            home: (context) => HomeScreenAnimation(),
            implicitAnimation: (context) => ImplicitAnimationScreen(),
            explicitAnimation: (context) => ExplicitAnimationScreen(),
-           animatedOpacity: (context) => AnimatedOpacitySecreen()
+           animatedOpacity: (context) => AnimatedOpacitySecreen(),
+           animatedSize: (context) => AnimatedSizeScreen(),
       },
     );
   }
