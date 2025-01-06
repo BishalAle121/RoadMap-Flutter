@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../main.dart';
+
 class ExplicitAnimationScreen extends StatefulWidget {
   const ExplicitAnimationScreen({super.key});
 
@@ -64,28 +66,60 @@ class _ExplicitAnimationScreenState extends State<ExplicitAnimationScreen> with 
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Explicit Animation Example')),
-      body: GestureDetector(
-        onPanStart: _onPanStart,
-        onPanUpdate: _onPanUpdate,
-        onPanEnd: _onPanEnd,
-        child: AnimatedBuilder(
-          animation: _animationController,
-          builder: (context, child) {
-            // Update position during dragging and animate back after drag ends
-            return Transform.translate(
-              offset: _animationController.isAnimating ? _animation.value : _currentPosition,
-              child: child,
-            );
-          },
-          child: Container(
-            width: 100,
-            height: 100,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: Colors.red,
+      body: Column(
+        children: [
+          GestureDetector(
+            onPanStart: _onPanStart,
+            onPanUpdate: _onPanUpdate,
+            onPanEnd: _onPanEnd,
+            child: AnimatedBuilder(
+              animation: _animationController,
+              builder: (context, child) {
+                // Update position during dragging and animate back after drag ends
+                return Transform.translate(
+                  offset: _animationController.isAnimating ? _animation.value : _currentPosition,
+                  child: child,
+                );
+              },
+              child: Container(
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.red,
+                ),
+              ),
             ),
           ),
-        ),
+          SizedBox(height: 30,),
+          Container(
+            width: double.infinity,
+            height: 80,
+            child: ElevatedButton(
+                onPressed: (){
+                  Navigator.pushNamed(context, AnimationHome.animatedTweenGeneric);
+                },
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.blueAccent,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
+                ),
+                child:const Text("Generic Tween",style: TextStyle(color: Colors.white, fontSize: 40),)
+            ),
+          ),
+          SizedBox(height: 30,),
+          Container(
+            width: double.infinity,
+            height: 80,
+            child: ElevatedButton(
+                onPressed: (){
+                  Navigator.pushNamed(context, AnimationHome.animatedClass);
+                },
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.blueAccent,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
+                ),
+                child:const Text("Animated Class",style: TextStyle(color: Colors.white, fontSize: 40),)
+            ),
+          ),
+        ],
       ),
     );
   }

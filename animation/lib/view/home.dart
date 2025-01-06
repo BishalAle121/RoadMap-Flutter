@@ -44,34 +44,6 @@ class _HomeScreenAnimationState extends State<HomeScreenAnimation> {
                 child:const Text("ExplicitAnimation",style: TextStyle(color: Colors.white, fontSize: 40),)
             ),
           ),
-          SizedBox(height: 30,),
-          Container(
-            width: double.infinity,
-            height: 80,
-            child: ElevatedButton(
-                onPressed: (){
-                  Navigator.pushNamed(context, AnimationHome.animatedOpacity);
-                },
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.blueAccent,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
-                ),
-                child:const Text("AnimationOpacity",style: TextStyle(color: Colors.white, fontSize: 40),)
-            ),
-          ),
-          SizedBox(height: 30,),
-          Container(
-            width: double.infinity,
-            height: 80,
-            child: ElevatedButton(
-                onPressed: (){
-                  Navigator.pushNamed(context, AnimationHome.animatedSize);
-                },
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.blueAccent,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
-                ),
-                child:const Text("AnimationSize",style: TextStyle(color: Colors.white, fontSize: 40),)
-            ),
-          ),
         ],),
     ),
     );
